@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs For CS Majors!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+    <script src="https://kit.fontawesome.com/c4f218aa74.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+
+<div class="min-h-screen bg-white text-gray-800 flex flex-col items-center justify-center relative">
+    <div class="absolute top-4 right-4 flex flex-col items-center">
+        <button id="darkModeToggle" class="bg-gray-200 p-4 rounded-full transition-transform duration-300">
+            <i class="fas fa-moon"></i>
+        </button>
+        <p id="message" class="hidden text-sm mt-2 text-gray-600">no, make your own dark mode.</p>
+    </div>
+    <div class="text-center">
+        <i class="fas fa-laptop-code text-6xl mb-4 animate__animated animate__fadeIn"></i>
+        <h1 class="text-4xl font-bold mb-2 animate__animated animate__fadeIn" data-aos="fade-up">Are you a Computer Science major?</h1>
+        <p class="text-lg mb-6 animate__animated animate__fadeIn" data-aos="fade-up" data-aos-delay="100">Find out the jobs you can apply for</p>
+        <a href="results" class="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold animate__animated animate__fadeIn" data-aos="fade-up" data-aos-delay="200">View Jobs</a>
+    </div>
+</div>
+<script>
+    const toggle = document.getElementById('darkModeToggle');
+    const message = document.getElementById('message');
+
+    toggle.addEventListener('click', () => {
+        toggle.style.transform = 'translateX(10px)';
+        setTimeout(() => {
+            toggle.style.transform = 'translateX(0)';
+            message.style.transform = 'translateX(0)';
+            message.classList.remove('hidden');
+            message.classList.add('animate__animated', 'animate__fadeIn');
+            setTimeout(() => {
+                message.classList.add('animate__fadeOut');
+                message.style.transform = 'translateX(100%)';
+                message.style.transition = 'transform 1s ease-in-out';
+                setTimeout(() => {
+                    message.classList.add('hidden');
+                    message.classList.remove('animate__fadeIn', 'animate__fadeOut');
+                    message.style.transform = '';
+                    message.style.transition = '';
+                }, 1000);
+            }, 2000);
+        }, 300);
+    });
+</script>
+    <!-- AOS Initialization -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
